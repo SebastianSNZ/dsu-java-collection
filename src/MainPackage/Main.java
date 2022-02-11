@@ -6,12 +6,13 @@ public class Main {
 
     public static void main(String[] args) {
         //arrayListTest();
-        //VectorTest();
+        vectorTest();
         //LinkedListTest();
         //priorityQueueTest();
         //hashSetTest();
         //linkedHashSetTest();
-        treeSetTest();
+        //treeSetTest();
+        //hashtableTest();
     }
 
 
@@ -250,6 +251,42 @@ public class Main {
         Iterator<Animal> secondIterator = treeSet.iterator();
         while(secondIterator.hasNext()) {
             System.out.println(secondIterator.next().show());
+        }
+        System.out.println();
+
+    }
+
+    private static void hashtableTest() {
+        Hashtable<String, Animal> hashtable = new Hashtable<>();
+
+        // adding elements using a string key
+        hashtable.put("cat", new Animal("Cat", 10));
+        hashtable.put("dog", new Animal("Dog", 15));
+        hashtable.put("hamster", new Animal("Hamster", 150));
+        hashtable.put("bird", new Animal("Bird", 20));
+
+        // iterating the Hashtable
+        System.out.println("Hashtable (first):");
+        Set<String> setOfKeys = hashtable.keySet();
+        Iterator<String> firstIterator = setOfKeys.iterator();
+        while (firstIterator.hasNext()) {
+            String key = firstIterator.next();
+            System.out.println("Key: \"" + key + "\" " + hashtable.get(key).show());
+        }
+        System.out.println();
+
+        // deleting an element using a string key
+        hashtable.remove("dog");
+
+        // updating a value using a string key
+        hashtable.replace("hamster", new Animal("New Hamster", 125));
+
+        // iterating the Hashtable
+        System.out.println("Hashtable (second):");
+        Iterator<String> secondIterator = setOfKeys.iterator();
+        while (secondIterator.hasNext()) {
+            String key = secondIterator.next();
+            System.out.println("Key: \"" + key + "\" " + hashtable.get(key).show());
         }
         System.out.println();
 
