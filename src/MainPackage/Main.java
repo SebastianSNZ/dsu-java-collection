@@ -6,12 +6,12 @@ public class Main {
 
     public static void main(String[] args) {
         //arrayListTest();
-        vectorTest();
-        //LinkedListTest();
+        //vectorTest();
+        //linkedListTest();
         //priorityQueueTest();
         //hashSetTest();
         //linkedHashSetTest();
-        //treeSetTest();
+        treeSetTest();
         //hashtableTest();
     }
 
@@ -141,10 +141,14 @@ public class Main {
         priorityQueue.add(new Animal("Dog", 1000));
         priorityQueue.add(new Animal("Cat", 900));
         priorityQueue.add(new Animal("Tiger", 1025));
-        priorityQueue.add(new Animal("Bear", 500));
+        priorityQueue.add(new Animal("Bear", 600));
         priorityQueue.add(new Animal("Duck", 1250));
-
+        priorityQueue.add(new Animal("Earthworm", 500));
         // PriorityQueue inserts in order, using the _compareTo_ method
+
+        // deleting an element from the queue
+
+        priorityQueue.remove(new Animal("Bear", 500));
 
         // iterating the PriorityQueue
         System.out.println("PriorityQueue:");
@@ -179,7 +183,6 @@ public class Main {
         hashSet.remove(new Animal("Duck", 100));
         hashSet.remove(new Animal("Wolf", 120));
 
-
         // iterating the HashSet again
         System.out.println("HashSet (second):");
         Iterator<Animal> secondIterator = hashSet.iterator();
@@ -191,7 +194,7 @@ public class Main {
     }
 
     private static void linkedHashSetTest() {
-        LinkedHashSet<Animal> linkedHashSet = new LinkedHashSet<>(); // HashSet use the _hashCode_ method like a key
+        LinkedHashSet<Animal> linkedHashSet = new LinkedHashSet<>();
 
         // adding elements into the LinkedHashSet
         linkedHashSet.add(new Animal("Cat", 115));
@@ -208,12 +211,12 @@ public class Main {
         }
         System.out.println();
 
-        // deleting elements from the HashSet
+        // deleting elements from the LinkedHashSet
         linkedHashSet.remove(new Animal("Cow", 125));
         linkedHashSet.remove(new Animal("Horse", 35));
 
 
-        // iterating the HashSet again
+        // iterating the LinkedHashSet again
         System.out.println("LinkedHashSet (second):");
         Iterator<Animal> secondIterator = linkedHashSet.iterator();
         while(secondIterator.hasNext()) {
@@ -224,16 +227,16 @@ public class Main {
     }
 
     private static void treeSetTest() {
-        TreeSet<Animal> treeSet = new TreeSet<>(); // HashSet use the _hashCode_ method like a key
+        TreeSet<Animal> treeSet = new TreeSet<>();
 
-        // adding elements into the LinkedHashSet
+        // adding elements into the TreeSet
         treeSet.add(new Animal("Cat", 32));
         treeSet.add(new Animal("Dog", 122));
         treeSet.add(new Animal("Dolphin", 47));
         treeSet.add(new Animal("Shark", 48));
         treeSet.add(new Animal("Dog", 122)); // you can't add the same element twice or more
 
-        // iterating the LinkedHashSet
+        // iterating the TreeSet
         System.out.println("TreeSet (first):");
         Iterator<Animal> firstIterator = treeSet.iterator();
         while(firstIterator.hasNext()) {
@@ -241,12 +244,12 @@ public class Main {
         }
         System.out.println();
 
-        // deleting elements from the HashSet
+        // deleting elements from the TreeSet
         treeSet.remove(new Animal("Shark", 48));
         treeSet.remove(new Animal("Cat", 32));
 
 
-        // iterating the HashSet again
+        // iterating the TreeSet again
         System.out.println("TreeSet (second):");
         Iterator<Animal> secondIterator = treeSet.iterator();
         while(secondIterator.hasNext()) {

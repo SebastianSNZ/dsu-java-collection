@@ -29,7 +29,7 @@ public class Animal implements Comparable<Animal>{
 
     @Override
     public int compareTo(Animal o) {
-        return o.population - this.population;
+        return this.population - o.population;
     }
 
     @Override
