@@ -5,14 +5,18 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        //arrayListTest();
-        //vectorTest();
-        //linkedListTest();
-        //priorityQueueTest();
-        //hashSetTest();
-        //linkedHashSetTest();
+        arrayListTest();
+        vectorTest();
+        linkedListTest();
+        priorityQueueTest();
+        hashtableTest();
+        hashMapTest();
+        linkedHashMapTest();
+        treeMapTest();
+        hashSetTest();
+        linkedHashSetTest();
         treeSetTest();
-        //hashtableTest();
+
     }
 
 
@@ -290,6 +294,123 @@ public class Main {
         while (secondIterator.hasNext()) {
             String key = secondIterator.next();
             System.out.println("Key: \"" + key + "\" " + hashtable.get(key).show());
+        }
+        System.out.println();
+
+    }
+
+    private static void hashMapTest() {
+        HashMap<String, Animal> hashMap = new HashMap<>();
+
+        // adding elements using a string key
+        hashMap.put("fish", new Animal("Fish", 95));
+        hashMap.put("bison", new Animal("Bison", 112));
+        hashMap.put("rat", new Animal("Rat", 120));
+        hashMap.put("bird", new Animal("Bird", 40));
+        hashMap.put(null, new Animal("Albatross", 10));
+
+        // iterating the HashMap
+        System.out.println("HashMap (first):");
+        Set<String> setOfKeys = hashMap.keySet();
+        Iterator<String> firstIterator = setOfKeys.iterator();
+        while (firstIterator.hasNext()) {
+            String key = firstIterator.next();
+            System.out.println("Key: \"" + key + "\" " + hashMap.get(key).show());
+        }
+        // printing the value with null key
+        System.out.println("Key: null " + hashMap.get(null).show());
+        System.out.println();
+
+        // deleting an element using a string key
+        hashMap.remove("bison");
+
+        // deleting an element using the null key
+        hashMap.remove(null);
+
+        // updating a value using a string key
+        hashMap.replace("rat", new Animal("New Rat", 1000));
+
+        // iterating the HashMap again
+        System.out.println("HashMap (second):");
+        Iterator<String> secondIterator = setOfKeys.iterator();
+        while (secondIterator.hasNext()) {
+            String key = secondIterator.next();
+            System.out.println("Key: \"" + key + "\" " + hashMap.get(key).show());
+        }
+        System.out.println();
+
+    }
+
+    private static void linkedHashMapTest() {
+        LinkedHashMap<String, Animal> linkedHashMap = new LinkedHashMap<>();
+
+        // adding elements using a string key
+        linkedHashMap.put("rabbit", new Animal("Rabbit", 400));
+        linkedHashMap.put("tortoise", new Animal("Tortoise", 500));
+        linkedHashMap.put("tiger", new Animal("Tiger", 315));
+        linkedHashMap.put("toucan", new Animal("Toucan", 270));
+        linkedHashMap.put("owl", new Animal("Owl", 415));
+
+        // iterating the LinkedHashMap
+        System.out.println("LinkedHashMap (first):");
+        Set<String> setOfKeys = linkedHashMap.keySet();
+        Iterator<String> firstIterator = setOfKeys.iterator();
+        while (firstIterator.hasNext()) {
+            String key = firstIterator.next();
+            System.out.println("Key: \"" + key + "\" " + linkedHashMap.get(key).show());
+        }
+        System.out.println();
+
+        // deleting an element using a string key
+        linkedHashMap.remove("tortoise");
+
+        // updating a value using a string key
+        linkedHashMap.replace("tiger", new Animal("White Tiger", 5));
+
+        // iterating the LinkedHashMap again
+        System.out.println("LinkedHashMap (second):");
+        Iterator<String> secondIterator = setOfKeys.iterator();
+        while (secondIterator.hasNext()) {
+            String key = secondIterator.next();
+            System.out.println("Key: \"" + key + "\" " + linkedHashMap.get(key).show());
+        }
+        System.out.println();
+
+    }
+
+    private static void treeMapTest() {
+        TreeMap<String, Animal> treeMap = new TreeMap<>();
+
+        // adding elements using a string key
+        treeMap.put("spider", new Animal("Spider", 88));
+        treeMap.put("whale", new Animal("Whale", 12));
+        treeMap.put("fish", new Animal("Fish", 26));
+        treeMap.put("albatross", new Animal("Albatross", 29));
+        treeMap.put("eagle", new Animal("Eagle", 15));
+
+        // iterating the TreeMap
+        // it will show all elements sorted alphabetically (sorted by the string key)
+        System.out.println("TreeMap (first):");
+        Set<String> setOfKeys = treeMap.keySet();
+        Iterator<String> firstIterator = setOfKeys.iterator();
+        while (firstIterator.hasNext()) {
+            String key = firstIterator.next();
+            System.out.println("Key: \"" + key + "\" " + treeMap.get(key).show());
+        }
+        System.out.println();
+
+        // deleting an element using a string key
+        treeMap.remove("fish");
+
+        // updating a value using a string key
+        treeMap.replace("spider", new Animal("Black Widow", 15));
+
+        // iterating the TreeMap again
+        System.out.println("TreeMap (second):");
+        Iterator<String> secondIterator = setOfKeys.iterator();
+        while (secondIterator.hasNext()) {
+            String key = secondIterator.next();
+            System.out.println("Key: \"" + key + "\" " + treeMap.get(key).show());
         }
         System.out.println();
 
